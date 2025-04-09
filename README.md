@@ -1,4 +1,5 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a id="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
@@ -15,8 +16,6 @@
 [![Issues][issues-shield]][issues-url] -->
 <!-- [![project_license][license-shield]][license-url] -->
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -41,8 +40,6 @@
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -57,48 +54,32 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#installation">Installation & Deployment per Docker</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
 Praktische QR Generator App für HoKuS.
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
-<!-- * [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url] -->
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Tailwind][TailwindCSS]][Tailwind-url]
-<!-- * [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url] -->
+- [![Svelte][Svelte.dev]][Svelte-url]
+- [![Tailwind][TailwindCSS]][Tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 Hier erfährst du, wie du das Projekt lokal einrichtest. Folge diesen einfachen Schritten, um eine lokale Kopie zum Laufen zu bringen.
@@ -106,11 +87,12 @@ Hier erfährst du, wie du das Projekt lokal einrichtest. Folge diesen einfachen 
 ### Prerequisites
 
 Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
-* npm
+
+- npm
   ```sh
   npm install npm@latest -g
   ```
-* [Docker](https://www.docker.com/get-started/)
+- [Docker](https://www.docker.com/get-started/)
 
 ### Installation & Deployment per Docker
 
@@ -123,10 +105,12 @@ Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
    docker build -t hokus-tools-app .
    ```
 3. Container starten
+
    ```sh
    docker run -d -p 3000:3000 hokus-tools-app
    ```
-Die App ist danach erreichbar unter http://localhost:3000 (oder IP deines Servers).
+
+   Die App ist danach erreichbar unter http://localhost:3000 (oder IP deines Servers).
 
 4. (Optional) Git-Remote-URL ändern, um versehentliche Pushes ins Original-Repo zu vermeiden:
    ```sh
@@ -137,39 +121,8 @@ Die App ist danach erreichbar unter http://localhost:3000 (oder IP deines Server
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- USAGE EXAMPLES
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
- -->
-
-
-<!-- ROADMAP -->
-<!-- ## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/Hokus-ev/qr-generator/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-
-
-
-
-
-
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Flo Maier - florian@maierflo.de
@@ -178,9 +131,9 @@ Project Link: [https://github.com/Hokus-ev/qr-generator](https://github.com/Hoku
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Hokus-ev/qr-generator.svg?style=for-the-badge
 [contributors-url]: https://github.com/Hokus-ev/qr-generator/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Hokus-ev/qr-generator.svg?style=for-the-badge
@@ -191,7 +144,6 @@ Project Link: [https://github.com/Hokus-ev/qr-generator](https://github.com/Hoku
 [issues-url]: https://github.com/Hokus-ev/qr-generator/issues
 [license-shield]: https://img.shields.io/github/license/Hokus-ev/qr-generator.svg?style=for-the-badge
 [license-url]: https://github.com/Hokus-ev/qr-generator/blob/master/LICENSE.txt
-
 [Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
 [Svelte-url]: https://svelte.dev/
 [TailwindCSS]: https://img.shields.io/badge/tailwindcss-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
