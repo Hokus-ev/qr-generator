@@ -32,7 +32,7 @@
 		return url;
 	})();
 
-    const sources = ["Website", "Facebook", "Instagram", "Flyer", "Sticker"];
+    const sources = ["Website", "Instagram", "Discord", "WhatsApp", "Flyer", "Plakat", "Sticker"];
 
 	function generateQRCode() {
 		if (!finalUrl) {
