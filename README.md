@@ -54,7 +54,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation & Deployment per Docker</a></li>
+        <li><a href="#installation--deployment-per-docker">Installation & Deployment per Docker</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
