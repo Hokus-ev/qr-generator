@@ -9,12 +9,12 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+[![Issues][issues-shield]][issues-url] -->
 <!-- [![project_license][license-shield]][license-url] -->
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 
 
@@ -22,7 +22,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Hokus-ev/qr-generator">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="static/logo_transparent.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">HoKuS QR Generator</h3>
@@ -74,9 +74,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+Praktische QR Generator App für HoKuS.
 
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `Hokus-ev`, `qr-generator`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -114,21 +114,21 @@ Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
 
 ### Installation & Deployment per Docker
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Repository klonen
+1. Repository klonen
    ```sh
    git clone https://github.com/Hokus-ev/qr-generator.git
    ```
-3. Docker-Image bauen
+2. Docker-Image bauen
    ```sh
-   docker build -t sveltekit-app .
+   docker build -t hokus-tools-app .
    ```
-4. Container starten
+3. Container starten
    ```sh
-   docker run -d -p 80:3000 sveltekit-app
+   docker run -d -p 3000:3000 hokus-tools-app
    ```
 Die App ist danach erreichbar unter http://localhost:3000 (oder IP deines Servers).
-5. (Optional) Git-Remote-URL ändern, um versehentliche Pushes ins Original-Repo zu vermeiden:
+
+4. (Optional) Git-Remote-URL ändern, um versehentliche Pushes ins Original-Repo zu vermeiden:
    ```sh
    git remote set-url origin Hokus-ev/qr-generator
    git remote -v # Kontrolle
@@ -163,36 +163,9 @@ See the [open issues](https://github.com/Hokus-ev/qr-generator/issues) for a ful
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-<!-- Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Top contributors:
-
-<a href="https://github.com/Hokus-ev/qr-generator/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Hokus-ev/qr-generator" alt="contrib.rocks image" />
-</a>
 
 
 
-<!-- LICENSE -->
-<!-- ## License
-
-Distributed under the project_license. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
@@ -204,18 +177,6 @@ Flo Maier - florian@maierflo.de
 Project Link: [https://github.com/Hokus-ev/qr-generator](https://github.com/Hokus-ev/qr-generator)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
