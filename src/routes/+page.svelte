@@ -9,20 +9,23 @@
 
 	let baseUrl = '';
 	let name = '';
-	let selectedSrc = '';
-	let customSrc = '';
 	let autoDownload = false;
 	let fileType: FileExtension = 'svg';
 	let finalUrl = '';
 	let qrCode: QRCodeStyling;
 
+	let selectedSrc = '';
+	let customSrc = '';
+	
+	let finalSrc = '';
+
 	$: finalUrl = (() => {
-		let srcValue = customSrc || selectedSrc;
+		finalSrc = customSrc || selectedSrc;
 		let url = baseUrl;
 
 		if (baseUrl) {
-			if (srcValue) {
-				url += (baseUrl.includes('?') ? '&' : '?') + 'src=' + encodeURIComponent(srcValue);
+			if (finalSrc) {
+				url += (baseUrl.includes('?') ? '&' : '?') + 'src=' + encodeURIComponent(finalSrc);
 			}
 		} else {
 			url = '';
@@ -68,18 +71,17 @@
 		qrCode.append(document.getElementById('canvas')!);
 
 		if (autoDownload) {
-			let srcValue = customSrc || selectedSrc;
-
-			qrCode.download({ name: 'qr_' + (name ? name + '_' : '') + srcValue, extension: fileType });
+			const fileName = 'qr_' + (name ? name + '_' : '') + finalSrc;
+			qrCode.download({ name: fileName, extension: fileType });
 		}
 	}
+
 	function downloadQRCode() {
 		if (qrCode) {
 			qrCode.update({ data: finalUrl });
 		}
-		let srcValue = customSrc || selectedSrc;
-
-		qrCode.download({ name: 'qr_' + (name ? name + '_' : '') + srcValue, extension: fileType });
+		const fileName = 'qr_' + (name ? name + '_' : '') + finalSrc;
+		qrCode.download({ name: fileName, extension: fileType });
 	}
 
 	async function generateAndDownloadAll() {
@@ -204,7 +206,7 @@
 		<div
 			id="canvas"
 			class="mt-6 flex-1 rounded border bg-gray-100 p-4 md:mt-0"
-			style="max-width: 50%;"
+		
 		></div>
 	</div>
 </main>
