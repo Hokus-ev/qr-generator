@@ -20,24 +20,24 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Hokus-ev/qr-generator">
-    <img src="static/logo_.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/olfusitus/qr-generator/">
+    <img src="static/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">HoKuS QR Generator</h3>
+<h3 align="center">QR Generator</h3>
 
   <p align="center">
     QR Generator.
     Generiert QR-Codes mit Logos und verschiedenen "src"-Kampagnenparametern.
     <!-- <br /> -->
-    <!-- <a href="https://github.com/Hokus-ev/qr-generator"><strong>Explore the docs »</strong></a> -->
+    <!-- <a href="https://github.com/olfusitus/qr-generator"><strong>Explore the docs »</strong></a> -->
     <!-- <br /> -->
     <!-- <br /> -->
-    <!-- <a href="https://github.com/Hokus-ev/qr-generator">View Demo</a> -->
+    <!-- <a href="https://github.com/olfusitus/qr-generator">View Demo</a> -->
     <!-- &middot; -->
-    <!-- <a href="https://github.com/Hokus-ev/qr-generator/issues/new?labels=bug&template=bug-report---.md">Report Bug</a> -->
+    <!-- <a href="https://github.com/olfusitus/qr-generator/issues/new?labels=bug&template=bug-report---.md">Report Bug</a> -->
     <!-- &middot; -->
-    <!-- <a href="https://github.com/Hokus-ev/qr-generator/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a> -->
+    <!-- <a href="https://github.com/olfusitus/qr-generator/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a> -->
   </p>
 </div>
 
@@ -68,7 +68,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Praktische QR Generator App für HoKuS.
+Praktische QR Generator App.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -99,7 +99,7 @@ Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
 
 1. Repository klonen
    ```sh
-   git clone https://github.com/Hokus-ev/qr-generator.git
+   git clone https://github.com/olfusitus/qr-generator.git
    ```
 2. Docker-Image bauen
    ```sh
@@ -115,7 +115,7 @@ Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
 
 4. (Optional) Git-Remote-URL ändern, um versehentliche Pushes ins Original-Repo zu vermeiden:
    ```sh
-   git remote set-url origin Hokus-ev/qr-generator
+   git remote set-url origin olfusitus/qr-generator
    git remote -v # Kontrolle
    ```
 
@@ -127,23 +127,23 @@ Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
 
 Flo Maier - florian@maierflo.de
 
-Project Link: [https://github.com/Hokus-ev/qr-generator](https://github.com/Hokus-ev/qr-generator)
+Project Link: [https://github.com/olfusitus/qr-generator/](https://github.com/olfusitus/qr-generator/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Hokus-ev/qr-generator.svg?style=for-the-badge
-[contributors-url]: https://github.com/Hokus-ev/qr-generator/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Hokus-ev/qr-generator.svg?style=for-the-badge
-[forks-url]: https://github.com/Hokus-ev/qr-generator/network/members
-[stars-shield]: https://img.shields.io/github/stars/Hokus-ev/qr-generator.svg?style=for-the-badge
-[stars-url]: https://github.com/Hokus-ev/qr-generator/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Hokus-ev/qr-generator.svg?style=for-the-badge
-[issues-url]: https://github.com/Hokus-ev/qr-generator/issues
-[license-shield]: https://img.shields.io/github/license/Hokus-ev/qr-generator.svg?style=for-the-badge
-[license-url]: https://github.com/Hokus-ev/qr-generator/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/olfusitus/qr-generator.svg?style=for-the-badge
+[contributors-url]: https://github.com/olfusitus/qr-generator/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/olfusitus/qr-generator.svg?style=for-the-badge
+[forks-url]: https://github.com/olfusitus/qr-generator/network/members
+[stars-shield]: https://img.shields.io/github/stars/olfusitus/qr-generator.svg?style=for-the-badge
+[stars-url]: https://github.com/olfusitus/qr-generator/stargazers
+[issues-shield]: https://img.shields.io/github/issues/olfusitus/qr-generator.svg?style=for-the-badge
+[issues-url]: https://github.com/olfusitus/qr-generator/issues
+[license-shield]: https://img.shields.io/github/license/olfusitus/qr-generator.svg?style=for-the-badge
+[license-url]: https://github.com/olfusitus/qr-generator/blob/master/LICENSE.txt
 [Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
 [Svelte-url]: https://svelte.dev/
 [TailwindCSS]: https://img.shields.io/badge/tailwindcss-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
