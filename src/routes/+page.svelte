@@ -7,6 +7,9 @@
 
 	import { _, locale, locales } from 'svelte-i18n';
 
+	import { PUBLIC_SHORTENER_ENABLED } from '$env/static/public';
+
+	const shortenerEnabled = PUBLIC_SHORTENER_ENABLED === 'true';
 
 
 	const { saveAs } = pkg;
@@ -137,20 +140,86 @@
 		const zipBlob = await zip.generateAsync({ type: 'blob' });
 		saveAs(zipBlob, 'qr_codes' + (name ? '_' + name : '') + '.zip');
 	}
+
+	let originalUrl = '';
+	let shortUrl = '';
+	let loading = false;
+	let error = '';
+	async function shortenLink() {
+		loading = true;
+		error = '';
+		shortUrl = '';
+
+		try {
+			const res = await fetch('/api/shorten', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ url: originalUrl })
+			});
+
+			const data = await res.json();
+			if (!res.ok) {
+				throw new Error(data.error || 'Fehler beim Kürzen');
+			}
+			// console.log(data);
+
+			shortUrl = data.shortUrl;
+			baseUrl = shortUrl;
+		} catch (err) {
+			error = (err as Error).message;
+		} finally {
+			loading = false;
+		}
+	}
 </script>
 
 <main class="mx-auto max-w-5xl p-6 font-sans">
 	<h1 class="mb-6 text-center text-2xl font-bold">{$_('title')}</h1>
 
+
+	{#if shortenerEnabled}
+	<h2>Link kürzen</h2>
+
+	<input
+		type="text"
+		bind:value={originalUrl}
+		placeholder="https://example.com/dein-langer-link"
+	/>
+
+	<button on:click={shortenLink} disabled={loading || !originalUrl}>
+		{loading ? 'Kürze...' : 'Kürzen'}
+	</button>
+	{/if}
+	
+	{#if shortUrl}
+		<p><strong>Short URL:</strong> <a href={shortUrl} target="_blank">{shortUrl}</a></p>
+	{/if}
+
+	{#if error}
+		<p style="color: red">{error}</p>
+	{/if}
 	<div class="flex flex-col gap-6 md:flex-row">
 		<!-- Formular -->
 		<div class="flex-1">
+			{#if shortUrl}
+				<input
+				type="text"
+				bind:value={baseUrl}
+				placeholder={$_('baseUrlPlaceholder')}
+				class="mb-4 w-full rounded border p-3"
+				readonly
+				/>
+			{:else}
 			<input
 				type="text"
 				bind:value={baseUrl}
 				placeholder={$_('baseUrlPlaceholder')}
 				class="mb-4 w-full rounded border p-3"
 			/>
+			{/if}
+
 
 			<input
 				type="text"
@@ -160,7 +229,7 @@
 			/>
 
 			<select bind:value={selectedSrc} class="mb-4 w-full rounded border p-3">
-				<option value="">{$_('selectedSource')}</option>
+				<option value="">{$_('selectSource')}</option>
 				{#each sources as source}
 					<option value={source}>{source}</option>
 				{/each}
