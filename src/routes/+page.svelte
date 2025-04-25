@@ -1,10 +1,14 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import QRCodeStyling from 'qr-code-styling';
 	import type { FileExtension } from 'qr-code-styling';
 
 	import JSZip from 'jszip';
 	import pkg from 'file-saver';
+
+	import { _, locale, locales } from 'svelte-i18n';
+
+
+
 	const { saveAs } = pkg;
 
 	let baseUrl = '';
@@ -16,7 +20,7 @@
 
 	let selectedSrc = '';
 	let customSrc = '';
-	
+
 	let finalSrc = '';
 
 	$: finalUrl = (() => {
@@ -36,16 +40,19 @@
 
 	const sources = ['Website', 'Instagram', 'Discord', 'WhatsApp', 'Flyer', 'Plakat', 'Sticker'];
 
+	let showAdvancedOptions = false;
+	let includeLogo = true;
+
 	function generateQRCode() {
 		if (!finalUrl) {
-			alert('Bitte gib mindestens eine Basis-URL ein.');
+			alert($_('alertNoUrl'));
 			return;
 		}
 
 		document.getElementById('canvas')!.innerHTML = '';
 
 		if (qrCode) {
-			qrCode.update({ data: finalUrl });
+			qrCode.update({ data: finalUrl, image: includeLogo ? 'logo.png' : undefined });
 		} else {
 			// Create a new QRCodeStyling instance
 			qrCode = new QRCodeStyling({
@@ -53,7 +60,7 @@
 				height: 1200,
 				type: 'svg',
 				data: finalUrl,
-				image: 'logo_transparent.png',
+				image: includeLogo ? 'logo.png' : undefined,
 				dotsOptions: {
 					// color: '#4267b2',
 					// type: 'rounded'
@@ -120,7 +127,11 @@
 
 			const filename = 'qr_' + (name ? name + '_' : '') + src + '.' + fileType;
 
-			zip.file(filename, blob);
+			if (blob) {
+				zip.file(filename, blob);
+			} else {
+				console.error(`Failed to generate QR code for ${src}`);
+			}
 		}
 		// ZIP-Datei erzeugen und herunterladen
 		const zipBlob = await zip.generateAsync({ type: 'blob' });
@@ -129,7 +140,7 @@
 </script>
 
 <main class="mx-auto max-w-5xl p-6 font-sans">
-	<h1 class="mb-6 text-center text-2xl font-bold">QR Code Generator</h1>
+	<h1 class="mb-6 text-center text-2xl font-bold">{$_('title')}</h1>
 
 	<div class="flex flex-col gap-6 md:flex-row">
 		<!-- Formular -->
@@ -137,19 +148,19 @@
 			<input
 				type="text"
 				bind:value={baseUrl}
-				placeholder="Basis-URL (z.B. https://hokus.org/brauereibesichtigung/)"
+				placeholder={$_('baseUrlPlaceholder')}
 				class="mb-4 w-full rounded border p-3"
 			/>
 
 			<input
 				type="text"
 				bind:value={name}
-				placeholder="Dateiname (optional)"
+				placeholder={$_('fileNamePlaceholder')}
 				class="mb-4 w-full rounded border p-3"
 			/>
 
 			<select bind:value={selectedSrc} class="mb-4 w-full rounded border p-3">
-				<option value="">-- Standard-Quelle auswählen --</option>
+				<option value="">{$_('selectedSource')}</option>
 				{#each sources as source}
 					<option value={source}>{source}</option>
 				{/each}
@@ -158,13 +169,13 @@
 			<input
 				type="text"
 				bind:value={customSrc}
-				placeholder="Benutzerdefinierte Quelle (optional)"
+				placeholder={$_('customSourcePlaceholder')}
 				class="mb-4 w-full rounded border p-3"
 			/>
 
 			<label class="mb-4 flex items-center gap-2">
 				<input type="checkbox" bind:checked={autoDownload} />
-				<span>Automatisch herunterladen</span>
+				<span>{$_('autoDownload')}</span>
 			</label>
 
 			<select bind:value={fileType} class="mb-4 w-full rounded border p-3">
@@ -174,18 +185,34 @@
 				<option value="webp">WEBP</option>
 			</select>
 
+			<button
+				on:click={() => (showAdvancedOptions = !showAdvancedOptions)}
+				class="cursor-pointer border-none bg-transparent text-blue-600 hover:underline"
+			>
+				{showAdvancedOptions ? $_('advancedOptionsHide') : $_('advancedOptionsShow')}
+			</button>
+
+			{#if showAdvancedOptions}
+				<div class="mt-4">
+					<label class="mb-4 flex items-center gap-2">
+						<input type="checkbox" bind:checked={includeLogo} />
+						<span>{$_('includeLogo')}</span>
+					</label>
+				</div>
+			{/if}
+
 			<div class="mb-4 flex gap-4">
 				<button
 					on:click={generateQRCode}
 					class="flex-1 rounded bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
 				>
-					QR-Code generieren
+					{$_('generateQRCode')}
 				</button>
 				<button
 					on:click={downloadQRCode}
 					class="flex-1 rounded bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
 				>
-					QR-Code herunterladen
+					{$_('downloadQRCode')}
 				</button>
 			</div>
 			<div class="flex justify-center">
@@ -193,22 +220,30 @@
 					on:click={generateAndDownloadAll}
 					class="rounded bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
 				>
-					Alle Speichern!
+					{$_('saveAll')}
 				</button>
 			</div>
 
 			<p class="mt-4 text-center text-gray-600 italic">
-				{finalUrl ? `Finale URL: ${finalUrl}` : 'Finale URL wird hier angezeigt…'}
+				{finalUrl ? `Finale URL: ${finalUrl}` : $_('finalUrlPlaceholder')}
 			</p>
 		</div>
 
 		<!-- Canvas -->
-		<div
-			id="canvas"
-			class="mt-6 flex-1 rounded border bg-gray-100 p-4 md:mt-0"
-		
-		></div>
+		<!-- Canvas -->
+<div class="mt-6 md:mt-0 w-full md:w-[400px]">
+	<div id="canvas" class="aspect-square w-full rounded border bg-gray-100 p-4"></div>
+  </div>
 	</div>
+	<!-- <select on:change={(e) => $setLocale(e.target.value)} class="mb-4">
+		<option value="en">English</option>
+		<option value="de">Deutsch</option>
+	</select> -->
+	<select bind:value={$locale}>
+	{#each $locales as locale}
+		<option value={locale}>{locale}</option>
+	{/each}
+	</select>
 </main>
 
 <style>

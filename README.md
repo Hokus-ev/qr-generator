@@ -21,13 +21,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/Hokus-ev/qr-generator">
-    <img src="static/logo_transparent.png" alt="Logo" width="80" height="80">
+    <img src="static/logo_.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">HoKuS QR Generator</h3>
 
   <p align="center">
-    QR Generator für HoKuS-Zwecke
+    QR Generator.
+    Generiert QR-Codes mit Logos und verschiedenen "src"-Kampagnenparametern.
     <!-- <br /> -->
     <!-- <a href="https://github.com/Hokus-ev/qr-generator"><strong>Explore the docs »</strong></a> -->
     <!-- <br /> -->
@@ -119,7 +120,6 @@ Stelle sicher, dass du [Node.js](https://nodejs.org/) und npm installiert hast.
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- CONTACT -->
 

@@ -1,0 +1,17 @@
+{
+    "title": "QR Code Generator",
+    "baseUrlPlaceholder": "Basis-URL (z.B. https://hokus.org/brauereibesichtigung/)",
+    "fileNamePlaceholder": "Dateiname (optional)",
+    "selectSource": "-- Standard-Quelle auswählen --",
+    "customSourcePlaceholder": "Benutzerdefinierte Quelle (optional)",
+    "autoDownload": "Automatisch herunterladen",
+    "advancedOptionsShow": "Erweiterte Optionen anzeigen",
+    "advancedOptionsHide": "Erweiterte Optionen ausblenden",
+    "includeLogo": "Logo im QR-Code einfügen",
+    "generateQRCode": "QR-Code generieren",
+    "downloadQRCode": "QR-Code herunterladen",
+    "saveAll": "Alle Speichern!",
+    "finalUrl": "Finale URL: {url}",
+    "alertNoUrl": "Bitte gib mindestens eine Basis-URL ein.",
+    "finalUrlPlaceholder": "Finale URL wird hier angezeigt…"
+}

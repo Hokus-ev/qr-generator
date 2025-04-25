@@ -1,0 +1,17 @@
+{
+    "title": "QR Code Generator",
+    "baseUrlPlaceholder": "Base URL (e.g., https://hokus.org/brewery-tour/)",
+    "fileNamePlaceholder": "File name (optional)",
+    "selectSource": "-- Select default source --",
+    "customSourcePlaceholder": "Custom source (optional)",
+    "autoDownload": "Auto download",
+    "advancedOptionsShow": "Show advanced options",
+    "advancedOptionsHide": "Hide advanced options",
+    "includeLogo": "Include logo in QR code",
+    "generateQRCode": "Generate QR Code",
+    "downloadQRCode": "Download QR Code",
+    "saveAll": "Save All!",
+    "finalUrl": "Final URL: {url}",
+    "alertNoUrl": "Please enter at least a base URL.",
+    "finalUrlPlaceholder": "Final URL will be displayed here…"
+}
