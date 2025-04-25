@@ -7,9 +7,9 @@
 
 	import { _, locale, locales } from 'svelte-i18n';
 
-	import { PUBLIC_SHORTENER_ENABLED } from '$env/static/public';
+	import { env } from '$env/dynamic/public';
 
-	const shortenerEnabled = PUBLIC_SHORTENER_ENABLED === 'true';
+	const shortenerEnabled = env.PUBLIC_SHORTENER_ENABLED === 'true';
 
 
 	const { saveAs } = pkg;
@@ -192,7 +192,7 @@
 		{loading ? 'Kürze...' : 'Kürzen'}
 	</button>
 	{/if}
-	
+
 	{#if shortUrl}
 		<p><strong>Short URL:</strong> <a href={shortUrl} target="_blank">{shortUrl}</a></p>
 	{/if}

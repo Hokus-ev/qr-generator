@@ -1,14 +1,15 @@
 import type { LinkShortener } from './index';
-import { BITLY_API_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
+// import { bitlyApiKey} from '$lib/config/private';
 
 export const bitlyShortener: LinkShortener = {
 	async shorten(url: string): Promise<string> {
-		// const apiKey = BITLY_API_KEY!;
+		const apiKey = env.BITLY_API_KEY!;
 		// const group_guid = process.env.BITLY_GROUP_GUID!;
 		const res = await fetch('https://api-ssl.bitly.com/v4/shorten', {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${BITLY_API_KEY}`,
+				Authorization: `Bearer ${apiKey}`,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({ long_url: url, domain: 'bit.ly'})
