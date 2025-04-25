@@ -20,13 +20,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set lowercased owner as env
+        id: prep
+        run: echo "REPO_OWNER_LC=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build Docker image
-        run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/qr-generator:latest .
+      - name: Build image
+        run: docker build -t ghcr.io/$REPO_OWNER_LC/${{ env.IMAGE_NAME }}:latest .
 
-      - name: Push Docker image
-        run: |
-          docker push ghcr.io/${{ github.repository_owner }}/qr-generator:latest
+      - name: Push image
+        run: docker push ghcr.io/$REPO_OWNER_LC/${{ env.IMAGE_NAME }}:latest
